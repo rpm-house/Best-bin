@@ -29,4 +29,6 @@ echo "Deployment Done.";
 echo "Create Service Load-balancer..";  
 kubectl delete service  $APP_NAME
 kubectl create service loadbalancer $APP_NAME --tcp=8080:8080
-echo "Create Service Load-balancer Done. ";  
+echo "Create Service Load-balancer Dobectl get servicesne. ";  
+echo "wait for sometime and execute 'kubectl get services'";
+
