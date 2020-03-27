@@ -10,12 +10,12 @@ public class HomeController {
 	
 	@RequestMapping("/")
 	public String index() {
-		return "Greetings from Best Bin Services!";
+		return "Hi Best Bin Services!";
 	}
 	
-	@RequestMapping("/getTest0")
-	public String getTest0() {
-		return "api/customer/getTest0";
+	@RequestMapping("/sayHello")
+	public String sayHello() {
+		return "sayHello!";
 	}
 
 	@GetMapping("/getTest")

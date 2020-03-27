@@ -3,13 +3,11 @@ package com.rpm.best.repo;
 import org.springframework.cloud.Cloud;
 import org.springframework.cloud.CloudFactory;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 import org.springframework.data.mongodb.MongoDbFactory;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
-@Configuration
-@Profile("cloud")
+//@Configuration
+//@Profile("cloud")
 public class CloudConfiguration {
 
   @Bean
