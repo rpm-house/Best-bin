@@ -28,14 +28,14 @@ kubectl delete deployment $APP_NAME
 echo "Deployed Application Deleted..";    
 kubectl create deployment $APP_NAME \
 --image=gcr.io/$GOOGLE_CLOUD_PROJECT/$APP_NAME:$APP_VERSION
-echo "Deployment Done.";   
-echo "=====================================================";  
-echo "Create Service Load-balancer..";  
+echo "Deployment Done.";
+echo "=====================================================";
+echo "Create Service Load-balancer..";
 kubectl delete service  $APP_NAME
 kubectl create service loadbalancer $APP_NAME --tcp=8080:8080
-echo "Create Service Load-balancer Done. ";  
-echo "====================================================="; 
-echo "====================================================="; 
+echo "Create Service Load-balancer Done. ";
+echo "=====================================================";
+echo "=====================================================";
 echo "wait for sometime and execute 'kubectl get services'";
-echo "====================================================="; 
+echo "=====================================================";
 
