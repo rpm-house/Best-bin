@@ -33,6 +33,12 @@ public class CustomerController {
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
+	@GetMapping(value = "/getTest")
+	public String getTest() {
+		logger.debug("Getting all customers.");
+		return "api/customer/getTest";
+	}
+	
 	/**
 	 * Method to save customers in the db.
 	 * 
