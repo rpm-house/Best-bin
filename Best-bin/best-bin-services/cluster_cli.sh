@@ -2,7 +2,7 @@
 set -e
 
 # name of your app 
-CLUSTER_NAME="best-service-cluster"
+CLUSTER_NAME="best-bin-cluster"
 
 echo "====================================================="; 
 echo "Enable Compute Service..";
