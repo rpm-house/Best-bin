@@ -13,3 +13,7 @@ gcloud container clusters create $CLUSTER_NAME \
   --machine-type n1-standard-1 \
   --zone us-central1-c
 echo "====================================================="; 
+echo "Set As current cluster..";
+gcloud container clusters get-credentials $CLUSTER_NAME \
+--zone us-central1-c --project kyma-hack
+echo "====================================================="; 
