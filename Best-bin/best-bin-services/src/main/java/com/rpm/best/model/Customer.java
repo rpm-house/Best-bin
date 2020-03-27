@@ -1,14 +1,13 @@
 package com.rpm.best.model;
 
 import java.io.Serializable;
-import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 //Mongo database annotation.
 @Document(collection = "customer")
-public class Customer implements Serializable{
+public class Customer implements Serializable {
 
 	/**
 	 * 
@@ -17,12 +16,8 @@ public class Customer implements Serializable{
 
 	@Id
 	private int customerId;
-	
+
 	private String customerName;
-	
-	private List<Vehicle> vehicles;
-	
-	private Contact contact;
 
 	public int getCustomerId() {
 		return customerId;
@@ -40,21 +35,4 @@ public class Customer implements Serializable{
 		this.customerName = customerName;
 	}
 
-	public List<Vehicle> getVehicles() {
-		return vehicles;
-	}
-
-	public void setVehicles(List<Vehicle> vehicles) {
-		this.vehicles = vehicles;
-	}
-
-	public Contact getContact() {
-		return contact;
-	}
-
-	public void setContact(Contact contact) {
-		this.contact = contact;
-	}
-	
-	
 }
