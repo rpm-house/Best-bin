@@ -24,14 +24,14 @@ echo "Deployment started..";
 echo "Mongo DB deployment started..";    
 kubectl apply -f deployment-mongo.yml
 echo "Mongo DB deployment Done.";    
-kubectl delete deployment $APP_NAME
+#kubectl delete deployment $APP_NAME
 echo "Deployed Application Deleted..";    
 kubectl create deployment $APP_NAME \
 --image=gcr.io/$GOOGLE_CLOUD_PROJECT/$APP_NAME:$APP_VERSION
 echo "Deployment Done.";
 echo "=====================================================";
 echo "Create Service Load-balancer..";
-kubectl delete service  $APP_NAME
+#kubectl delete service  $APP_NAME
 kubectl create service loadbalancer $APP_NAME --tcp=8080:8080
 echo "Create Service Load-balancer Done. ";
 echo "=====================================================";
