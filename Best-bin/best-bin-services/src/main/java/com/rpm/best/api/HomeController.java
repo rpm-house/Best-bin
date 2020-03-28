@@ -18,12 +18,5 @@ public class HomeController {
 		return "sayHello!";
 	}
 
-	@GetMapping("/getTest")
-	public String getTest() {
-		return "api/customer/getTest";
-	}
-	@GetMapping(value ="/getTest1")
-	public String getTest1() {
-		return "api/customer/getTest1";
-	}
+	
 }

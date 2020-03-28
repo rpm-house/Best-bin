@@ -7,6 +7,8 @@ CLUSTER_NAME="best-bin-cluster"
 echo "====================================================="; 
 echo "Enable Compute Service..";
 gcloud services enable compute.googleapis.com container.googleapis.com
+echo "Delete the exisitng Cluster..";
+kubectl config delete-cluster $CLUSTER_NAME
 echo "Create Cluster..";
 gcloud container clusters create $CLUSTER_NAME \
   --num-nodes 2 \

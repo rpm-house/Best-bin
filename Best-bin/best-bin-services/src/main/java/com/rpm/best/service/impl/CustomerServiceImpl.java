@@ -38,8 +38,8 @@ public class CustomerServiceImpl implements CustomerService {
 	 * com.assignment.springboot.mongo.service.Customerservice#createCustomer(java.
 	 * util.List)
 	 */
-	public void createCustomer(Customer emp) {
-		dao.save(emp);
+	public void createCustomer(Customer customer) {
+		dao.save(customer);
 	}
 
 	/*
@@ -49,8 +49,8 @@ public class CustomerServiceImpl implements CustomerService {
 	 * com.assignment.springboot.mongo.service.Customerservice#createCustomer(java.
 	 * util.List)
 	 */
-	public void createCustomers(List<Customer> emp) {
-		dao.saveAll(emp);
+	public void createCustomers(List<Customer> customer) {
+		dao.saveAll(customer);
 	}
 
 	/*
@@ -90,8 +90,8 @@ public class CustomerServiceImpl implements CustomerService {
 	 * @see
 	 * com.assignment.springboot.mongo.service.Customerservice#updateCustomer(int)
 	 */
-	public void updateCustomer(Customer emp) {
-		dao.save(emp);
+	public void updateCustomer(Customer customer) {
+		dao.save(customer);
 	}
 
 	/*
