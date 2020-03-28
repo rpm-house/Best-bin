@@ -1,14 +1,17 @@
 package com.rpm.best.service.impl;
 
+import java.util.Base64;
 import java.util.Collection;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
+import org.bson.types.Binary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.rpm.best.model.Product;
 import com.rpm.best.model.DynamicQuery;
+import com.rpm.best.model.Product;
 import com.rpm.best.repo.CustomQuery;
 import com.rpm.best.repo.ProductRepository;
 import com.rpm.best.service.ProductService;
@@ -56,11 +59,10 @@ public class ProductServiceImpl implements ProductService {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see
-	 * com.assignment.springboot.mongo.service.Productservice#getAllProducts()
+	 * @see com.assignment.springboot.mongo.service.Productservice#getAllProducts()
 	 */
 	public Collection<Product> getAllProducts() {
-		return dao.findAll();
+		return getProducts(dao.findAll());
 	}
 
 	/*
@@ -107,14 +109,24 @@ public class ProductServiceImpl implements ProductService {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see
-	 * com.rpm.services.service.ProductService#getAllProducts(com.rpm.services.
+	 * @see com.rpm.services.service.ProductService#getAllProducts(com.rpm.services.
 	 * model.DynamicQuery)
 	 */
 	@Override
 	public Collection<Product> getAllProducts(DynamicQuery dynamicQuery) {
 		dynamicQuery.setEntity("com.rpm.services.model.Product");
-		return dao.getByDynamicQuery(dynamicQuery);
+		return getProducts(dao.getByDynamicQuery(dynamicQuery));
+	}
+
+	private Collection<Product> getProducts(Collection<Product> products) {
+		Collection<Product> productList = new LinkedList<>();
+		for (Product product : products) {
+			if (null != product.getImage()) {
+				product.setImageStr(Base64.getEncoder().encodeToString(product.getImage().getData()));
+			}
+			productList.add(product);
+		}
+		return productList;
 	}
 
 }

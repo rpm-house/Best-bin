@@ -1,9 +1,12 @@
 package com.rpm.best.api;
 
+import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
+import org.bson.BsonBinarySubType;
+import org.bson.types.Binary;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +17,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
-import com.rpm.best.model.Product;
 import com.rpm.best.model.DynamicQuery;
+import com.rpm.best.model.Product;
 import com.rpm.best.service.ProductService;
 
 /**
@@ -38,9 +43,12 @@ public class ProductController {
 	 * 
 	 * @param product
 	 * @return
+	 * @throws IOException 
 	 */
 	@PostMapping(value = "/create")
-	public String create(@RequestBody Product product) {
+	public String create(Product product, @RequestParam("file") MultipartFile file) throws IOException {
+		product.setImage(new Binary(BsonBinarySubType.BINARY, file.getBytes()));
+		System.out.println("Product:"+product.toString());
 		logger.debug("Saving products.");
 		service.createProduct(product);
 		return "Product records created.";
